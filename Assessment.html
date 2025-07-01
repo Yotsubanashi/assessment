@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laptop Assessment Report Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            font-size: 12px;
+            line-height: 1.2;
+        }
+    
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #0a2258;
+            margin: 0 auto;
+            text-align: center;
+            padding-top: 0;
+        }
+        .form-section {
+            margin-bottom: 20px;
+        }
+        .section-title {
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 10px;
+            color: #333;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 3px;
+        }
+        .form-row {
+            display: flex;
+            margin-bottom: 8px;
+            align-items: center;
+        }
+        .form-row label {
+            flex: 1;
+            margin-right: 10px;
+        }
+        .form-row input[type="text"] {
+            flex: 2;
+            border: none;
+            border-bottom: 1px solid #333;
+            padding: 2px 5px;
+            font-size: 12px;
+        }
+        .checkbox-group {
+            display: flex;
+            gap: 15px;
+            margin-left: 10px;
+        }
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .checkbox-item input[type="checkbox"] {
+            margin: 0;
+        }
+        .findings-section {
+            margin-top: 20px;
+        }
+        .findings-box {
+            border: 1px solid #333;
+            min-height: 80px;
+            padding: 10px;
+            margin-top: 10px;
+        }
+        .signature-section {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            gap: 30px;
+        }
+        .signature-field {
+            flex: 1;
+        }
+        .signature-line {
+            display: none;
+        }
+        .print-button {
+            background: #ff6b6b;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        .print-button:hover {
+            background: #ee5a52;
+        }
+        @media print {
+            .print-button {
+                display: none;
+            }
+            body {
+                margin: 0;
+                padding: 15px;
+            }
+        }
+        .signature-input {
+            width: 100%;
+            border: none;
+            border-bottom: 1px solid #333;
+            font-size: 14px;
+            padding: 5px 0;
+            margin-top: 5px;
+            background: transparent;
+        }
+    </style>
+</head>
+<body>
+    <button class="print-button" onclick="window.print()">Print Form</button>
+    
+    <div class="header">
+        <div class="title">Laptop Assessment Form</div>
+    </div>
+
+    <div class="form-section">
+        <div class="section-title">Laptop Information</div>
+        
+        <div class="form-row">
+            <label>Brand/Model:</label>
+            <input type="text" name="brand_model">
+        </div>
+        
+        <div class="form-row">
+            <label>Serial Number:</label>
+            <input type="text" name="serial_number">
+        </div>
+        
+        <div class="form-row">
+            <label>Processor:</label>
+            <input type="text" name="processor">
+        </div>
+        
+        <div class="form-row">
+            <label>RAM:</label>
+            <input type="text" name="ram">
+        </div>
+        
+        <div class="form-row">
+            <label>Storage (HDD/SSD):</label>
+            <input type="text" name="storage">
+        </div>
+        
+        <div class="form-row">
+            <label>Operating System:</label>
+            <input type="text" name="operating_system">
+        </div>
+        
+        <div class="form-row">
+            <label>Screen Size & Resolution:</label>
+            <input type="text" name="screen_size">
+        </div>
+        
+        <div class="form-row">
+            <label>Years:</label>
+            <input type="text" name="years">
+        </div>
+     
+    </div>
+
+    <div class="form-section">
+        <div class="section-title">Physical Condition</div>
+        
+        <div class="form-row">
+            <label>Casing:</label>
+            <div class="checkbox-group">
+                <div class="checkbox-item">
+                    <input type="checkbox" id="casing_excellent" name="casing">
+                    <label for="casing_excellent">Excellent</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="casing_good" name="casing">
+                    <label for="casing_good">Good</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="casing_fair" name="casing">
+                    <label for="casing_fair">Fair</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="casing_poor" name="casing">
+                    <label for="casing_poor">Poor</label>
+                </div>
+            </div>
+        </div>
+        
+        <div class="form-row">
+            <label>Keyboard:</label>
+            <div class="checkbox-group">
+                <div class="checkbox-item">
+                    <input type="checkbox" id="keyboard_functional" name="keyboard">
+                    <label for="keyboard_functional">Fully functional</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="keyboard_some_not_working" name="keyboard">
+                    <label for="keyboard_some_not_working">Some keys not working</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="keyboard_damaged" name="keyboard">
+                    <label for="keyboard_damaged">Damaged</label>
+                </div>
+            </div>
+        </div>
+        
+        <div class="form-row">
+            <label>Trackpad/Mouse:</label>
+            <div class="checkbox-group">
+                <div class="checkbox-item">
+                    <input type="checkbox" id="trackpad_working" name="trackpad">
+                    <label for="trackpad_working">Working</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="trackpad_not_working" name="trackpad">
+                    <label for="trackpad_not_working">Not working</label>
+                </div>
+            </div>
+        </div>
+        
+        <div class="form-row">
+            <label>Screen:</label>
+            <div class="checkbox-group">
+                <div class="checkbox-item">
+                    <input type="checkbox" id="screen_no_issues" name="screen">
+                    <label for="screen_no_issues">No issues</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="screen_scratches" name="screen">
+                    <label for="screen_scratches">Minor scratches</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="screen_cracked" name="screen">
+                    <label for="screen_cracked">Cracked/Dead pixels</label>
+                </div>
+            </div>
+        </div>
+        
+        <div class="form-row">
+            <label>Ports & Connectivity:</label>
+            <div class="checkbox-group">
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ports_functional" name="ports">
+                    <label for="ports_functional">All functional</label>W
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ports_some_not_working" name="ports">
+                    <label for="ports_some_not_working">Some not working</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ports_damaged" name="ports">
+                    <label for="ports_damaged">Damaged</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-section">
+        <div class="section-title">Functionality Check</div>
+        
+        <div class="form-row">
+            <label>Boots to OS properly:</label>
+            <div class="checkbox-group">
+                <div class="checkbox-item">
+                    <input type="checkbox" id="boots_yes" name="boots">
+                    <label for="boots_yes">Yes</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="boots_no" name="boots">
+                    <label for="boots_no">No</label>
+                </div>
+            </div>
+        </div>
+        
+        <div class="form-row">
+            <label>WiFi & Bluetooth:</label>
+            <div class="checkbox-group">
+                <div class="checkbox-item">
+                    <input type="checkbox" id="wifi_working" name="wifi">
+                    <label for="wifi_working">Working</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="wifi_not_working" name="wifi">
+                    <label for="wifi_not_working">Not working</label>
+                </div>
+            </div>
+        </div>
+        
+        <div class="form-row">
+            <label>Camera/Mic/Speakers:</label>
+            <div class="checkbox-group">
+                <div class="checkbox-item">
+                    <input type="checkbox" id="camera_working" name="camera">
+                    <label for="camera_working">Working</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="camera_not_working" name="camera">
+                    <label for="camera_not_working">Not working</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="camera_na" name="camera">
+                    <label for="camera_na">Not applicable</label>
+                </div>
+            </div>
+        </div>
+        
+        <div class="form-row">
+            <label>Charger Included:</label>
+            <div class="checkbox-group">
+                <div class="checkbox-item">
+                    <input type="checkbox" id="charger_yes" name="charger">
+                    <label for="charger_yes">Yes</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="charger_no" name="charger">
+                    <label for="charger_no">No</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <label for="etc_textbox">Etc.:</label>
+            <input type="text" id="etc_textbox" name="etc" style="flex:2; border:none; border-bottom:1px solid #333; padding:2px 5px; font-size:12px;">
+        </div>
+    </div>
+
+    <div class="form-section findings-section">
+        <div class="section-title">Findings</div>
+        <div class="findings-box"></div>
+    </div>
+
+    <div class="signature-section">
+        <div class="signature-field">
+            <label><strong>Assessed by:</strong></label>
+            <input type="text" class="signature-input" name="assessed_by">
+        </div>
+        
+        <div class="signature-field">
+            <label><strong>Date:</strong></label>
+            <input type="text" class="signature-input" name="date">
+        </div>
+    </div>
+
+    <div style="margin-top: 20px;">
+        <div class="signature-field">
+            <label><strong>Buyer Name & Signature:</strong></label>
+            <input type="text" class="signature-input" name="buyer_name">
+        </div>
+    </div>
+
+    <script>
+        // Make checkboxes behave like radio buttons within each group
+        document.addEventListener('change', function(e) {
+            if (e.target.type === 'checkbox') {
+                const name = e.target.name;
+                if (name) {
+                    const checkboxes = document.querySelectorAll(`input[name="${name}"]`);
+                    checkboxes.forEach(cb => {
+                        if (cb !== e.target) {
+                            cb.checked = false;
+                        }
+                    });
+                }
+                updateFindings();
+            }
+        });
+
+        // Map input names to display labels
+        const groupLabels = {
+            casing: 'Casing',
+            keyboard: 'Keyboard',
+            trackpad: 'Trackpad/Mouse',
+            screen: 'Screen',
+            ports: 'Ports & Connectivity',
+            boots: 'Boots to OS properly',
+            wifi: 'WiFi & Bluetooth',
+            camera: 'Camera/Mic/Speakers',
+            charger: 'Charger Included'
+        };
+
+        function updateFindings() {
+            let findings = '';
+            for (const name in groupLabels) {
+                const checked = document.querySelector(`input[name="${name}"]:checked`);
+                if (checked) {
+                    // Get the label text for the checked input
+                    const label = document.querySelector(`label[for="${checked.id}"]`);
+                    findings += `<div><strong>${groupLabels[name]}:</strong> ${label ? label.textContent : ''}</div>`;
+                }
+            }
+            document.querySelector('.findings-box').innerHTML = findings || '<span style="color:#888">No findings selected yet.</span>';
+        }
+
+        // Initialize findings on page load
+        updateFindings();
+
+        // Sync Etc. textbox to findings textarea
+        const etcTextbox = document.getElementById('etc_textbox');
+        const findingsTextarea = document.querySelector('.findings-textarea');
+        let findingsUserText = '';
+        if (etcTextbox && findingsTextarea) {
+            // Track user input in findings textarea (excluding the etc value)
+            findingsTextarea.addEventListener('input', function() {
+                // Remove the etc value if present, keep only user text
+                const etcVal = etcTextbox.value ? `\nEtc.: ${etcTextbox.value}` : '';
+                if (findingsTextarea.value.endsWith(etcVal)) {
+                    findingsUserText = findingsTextarea.value.slice(0, -etcVal.length);
+                } else {
+                    findingsUserText = findingsTextarea.value;
+                }
+            });
+            etcTextbox.addEventListener('input', function() {
+                const etcVal = etcTextbox.value ? `\nEtc.: ${etcTextbox.value}` : '';
+                findingsTextarea.value = findingsUserText + etcVal;
+            });
+        }
+    </script>
+</body>
+</html>
